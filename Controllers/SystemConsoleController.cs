@@ -11,20 +11,28 @@ namespace Withus.Controllers
 {
     
     public class SystemConsoleController
-    {
-        MainForm mainForm;
+    {        
+        SystemConsole systemConsole;
         ISystemConsoleView systemConsoleView { get; set; }
         
-        public SystemConsoleController(MainForm main, ISystemConsoleView systemConsoleView)
+        public SystemConsoleController(ISystemConsoleView systemConsoleView)
         {
-            this.systemConsoleView = systemConsoleView;
-            this.mainForm = main;
-            systemConsoleView.SystemConsole_Close += SystemConsole_Close;
-        }
+            this.systemConsoleView = systemConsoleView;          
+            systemConsole = (SystemConsole)this.systemConsoleView;            
+            systemConsoleView.SystemConsole_Tray += SystemConsole_Tray;
+            systemConsoleView.SystemConsole_Load += SystemConsole_Load;
+        }        
 
-        private void SystemConsole_Close(object sender, EventArgs e)
+        private void SystemConsole_Load(object sender, EventArgs e)
         {
-            mainForm.menuItem_SystemConsole.Enabled = true;
+            string strDateTime = DateTime.Now.ToString("yy.MM.dd HH:mm:ss");
+            string message = "System Initialized";
+            systemConsole.richTextBox_SystemConsole.AppendText($"[{strDateTime}] {message}\n");
+            systemConsole.richTextBox_SystemConsole.ScrollToCaret();
+        }
+        private void SystemConsole_Tray(object sender, EventArgs e)
+        {            
+            systemConsole.WindowState = FormWindowState.Minimized;
         }
     }
 }

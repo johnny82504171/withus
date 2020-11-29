@@ -16,30 +16,17 @@ namespace Withus
 {
     public partial class MainForm : Form, IMainView
     {
-        public MainForm() => InitializeComponent();
+        public event EventHandler ProcessKill;
+        public event EventHandler SystemMessage_Open;
 
-        public void CreateMDIs(IMainView.MDIType type)
+        public MainForm()
         {
-            if (type == IMainView.MDIType.SystemMessage)
-            {
-                SystemConsole systemConsole = new SystemConsole();
-                new SystemConsoleController(this,systemConsole);
-                systemConsole.MdiParent = this;
-                systemConsole.Show();
-            }
+            InitializeComponent();
+            this.menuStrip_Main.AllowMerge = false;
         }
 
-        public void MessageApender(string message) => MessageBox.Show($"{message}");              
-
-        #region Controls Events
-        
-        
-        public event EventHandler ProcessKill;
-        //1. UI 메뉴 중 "프로그램 종료" 클릭 시 => 해당 델리게이트에게 던져줌 근대 어뜨케!
-        private void menuItem_ProcessKill_Click(object sender, EventArgs e) => ProcessKill.Invoke(this, new EventArgs());
-
-
-        public event EventHandler SystemMessage_Open;
+        #region Controls Events               
+        private void menuItem_ProcessKill_Click(object sender, EventArgs e) => ProcessKill.Invoke(this, new EventArgs());        
         private void menuItem_SystemMessage_Click(object sender, EventArgs e) => SystemMessage_Open.Invoke(sender, new EventArgs());
         #endregion
 

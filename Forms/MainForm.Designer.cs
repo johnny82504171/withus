@@ -28,24 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
             this.프로그램ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItem_ProcessKill = new System.Windows.Forms.ToolStripMenuItem();
-            this.보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem_SystemConsole = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip_Main.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip_Main
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.프로그램ToolStripMenuItem,
-            this.보기ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.프로그램ToolStripMenuItem});
+            this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip_Main.Name = "menuStrip_Main";
+            this.menuStrip_Main.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip_Main.TabIndex = 3;
+            this.menuStrip_Main.Text = "menuStrip1";
             // 
             // 프로그램ToolStripMenuItem
             // 
@@ -58,50 +55,34 @@
             // menuItem_ProcessKill
             // 
             this.menuItem_ProcessKill.Name = "menuItem_ProcessKill";
-            this.menuItem_ProcessKill.Size = new System.Drawing.Size(150, 22);
+            this.menuItem_ProcessKill.Size = new System.Drawing.Size(180, 22);
             this.menuItem_ProcessKill.Text = "프로그램 종료";
             this.menuItem_ProcessKill.Click += new System.EventHandler(this.menuItem_ProcessKill_Click);
-            // 
-            // 보기ToolStripMenuItem
-            // 
-            this.보기ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItem_SystemConsole});
-            this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
-            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.보기ToolStripMenuItem.Text = "보기";
-            // 
-            // menuItem_SystemConsole
-            // 
-            this.menuItem_SystemConsole.Name = "menuItem_SystemConsole";
-            this.menuItem_SystemConsole.Size = new System.Drawing.Size(180, 22);
-            this.menuItem_SystemConsole.Text = "시스템 메세지";
-            this.menuItem_SystemConsole.Click += new System.EventHandler(this.menuItem_SystemMessage_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip_Main);
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip_Main;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.menuStrip_Main.ResumeLayout(false);
+            this.menuStrip_Main.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip_Main;
         private System.Windows.Forms.ToolStripMenuItem 프로그램ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItem_ProcessKill;
-        private System.Windows.Forms.ToolStripMenuItem 보기ToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem menuItem_SystemConsole;
     }
 }
 

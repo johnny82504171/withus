@@ -12,10 +12,14 @@ using Withus.Views;
 namespace Withus.Forms
 {
     public partial class SystemConsole : Form, ISystemConsoleView
-    {       
-        public SystemConsole() => InitializeComponent();            
+    {
+        public event EventHandler SystemConsole_Load;
+        public event EventHandler SystemConsole_Tray;
 
-        public event EventHandler SystemConsole_Close;
-        private void SystemConsole_FormClosing(object sender, FormClosingEventArgs e) => SystemConsole_Close.Invoke(sender, new EventArgs());
+        public SystemConsole() => InitializeComponent();        
+
+        private void menuItem_SystemConsole_Tray_Click(object sender, EventArgs e) => SystemConsole_Tray.Invoke(sender, new EventArgs());
+
+        private void SystemConsole_Load_Event(object sender, EventArgs e) => SystemConsole_Load.Invoke(sender, new EventArgs());
     }
 }

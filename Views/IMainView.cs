@@ -7,14 +7,7 @@ using System.Threading.Tasks;
 namespace Withus
 {
     public interface IMainView
-    {      
-       enum MDIType
-        {
-            SystemMessage
-        }
-        event EventHandler SystemMessage_Open;
-        event EventHandler ProcessKill;        
-
-        void MessageApender(string message); 
+    {
+        event EventHandler ProcessKill;       
     }
 }

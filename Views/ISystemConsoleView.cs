@@ -8,6 +8,7 @@ namespace Withus.Views
 {
     public interface ISystemConsoleView
     {
-        event EventHandler SystemConsole_Close;       
+        event EventHandler SystemConsole_Tray;
+        event EventHandler SystemConsole_Load;
     }
 }
